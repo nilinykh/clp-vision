@@ -99,7 +99,7 @@ def mscoco_image_filename(config, image_id):
 
 
 def visgen_image_filename(config, image_id):
-    visgen_image_root = config.get('VISGEN', 'visgen_12') + '/images'
+    visgen_image_root = config.get('VISGEN', 'visgen_14')
     file_base = '%d.jpg' % (image_id)
     full_path = visgen_image_root + '/VG_100K/' + file_base
     if not os.path.isfile(full_path):

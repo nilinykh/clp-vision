@@ -1,6 +1,6 @@
 # coding: utf-8
 '''
-Use keras models to extract features from images, as specified
+Use tensorflow.keras models to extract features from images, as specified
 by bbdf (output of preproc.py)
 '''
 
@@ -20,8 +20,8 @@ import h5py
 
 from tqdm import tqdm
 
-from keras.models import Model
-from keras import backend
+from tensorflow.keras.models import Model
+from tensorflow.keras import backend
 
 sys.path.append('../Utils')
 from utils import print_timestamped_message, code_icorpus, get_image_part
@@ -255,7 +255,7 @@ def compute_feats(config, args, bbdf, model, preproc,
 # ======== MAIN =========
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Use keras ConvNets to extract image features')
+        description='Use tensorflow.keras ConvNets to extract image features')
     parser.add_argument('-c', '--config_file',
                         help='''
                         path to config file specifying data paths.
@@ -349,14 +349,14 @@ if __name__ == '__main__':
     config.set('runtime', 'model', args.model)
 
     if arch == 'vgg19' and not args.dry_run:
-        from keras.applications.vgg19 import VGG19
-        from keras.applications.vgg19 import preprocess_input as preproc
+        from tensorflow.keras.applications.vgg19 import VGG19
+        from tensorflow.keras.applications.vgg19 import preprocess_input as preproc
         base_model = VGG19(weights='imagenet')
         model = Model(inputs=base_model.input,
                       outputs=base_model.get_layer(layer).output)
     if arch == 'rsn50' and not args.dry_run:
-        from keras.applications.resnet50 import ResNet50
-        from keras.applications.resnet50 import preprocess_input as preproc
+        from tensorflow.keras.applications.resnet50 import ResNet50
+        from tensorflow.keras.applications.resnet50 import preprocess_input as preproc
         # base_model = ResNet50(weights='imagenet')
         model = ResNet50(weights='imagenet', include_top=False, pooling=layer)
         # model = Model(inputs=base_model.input,

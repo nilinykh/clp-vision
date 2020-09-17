@@ -77,7 +77,7 @@ def serialise_region_descr(this_region):
     this_phrase = this_region['phrase']
     out_phrase = []
     last_pos = 0
-    for key in sorted(string_annotations.iterkeys()):
+    for key, _ in sorted(string_annotations.items()):
         val = string_annotations[key]
         start, end = key
         annotation = '|'.join(val)

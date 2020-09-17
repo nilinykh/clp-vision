@@ -481,8 +481,8 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome Regions', indent=4)
 
-        vgimd_path = config.get('VISGEN', 'visgen_12') + '/jsons/image_data.json'
-        vgreg_path = config.get('VISGEN', 'visgen_12') + '/jsons/region_graphs.json'
+        vgimd_path = config.get('VISGEN', 'visgen_14') + '/jsons/image_data.json'
+        vgreg_path = config.get('VISGEN', 'visgen_14') + '/jsons/region_graphs.json'
         this_corpus = icorpus_code['visual_genome']
 
         with open(vgimd_path, 'r') as f:
@@ -524,7 +524,7 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome Image Data', indent=4)
 
-        vgimd_path = config.get('VISGEN', 'visgen_12') + '/jsons/image_data.json'
+        vgimd_path = config.get('VISGEN', 'visgen_14') + '/jsons/image_data.json'
         this_corpus = icorpus_code['visual_genome']
 
         with open(vgimd_path, 'r') as f:
@@ -552,7 +552,7 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome Relationships', indent=4)
 
-        vgrel_path = config.get('VISGEN', 'visgen_12') + '/jsons/relationships.json'
+        vgrel_path = config.get('VISGEN', 'visgen_14') + '/jsons/relationships.json'
         with open(vgrel_path, 'r') as f:
             out = []
             iterator = items(f, 'item')
@@ -588,7 +588,7 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome Objects', indent=4)
 
-        vgobj_path = config.get('VISGEN', 'visgen_12') + '/jsons/objects.json'
+        vgobj_path = config.get('VISGEN', 'visgen_14') + '/jsons/objects.json'
         with open(vgobj_path, 'r') as f:
             out = []
             iterator = items(f, 'item')
@@ -619,7 +619,7 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome Attributes', indent=4)
 
-        vgatt_path = config.get('VISGEN', 'visgen_12') + '/jsons/attributes.json'
+        vgatt_path = config.get('VISGEN', 'visgen_14') + '/jsons/attributes.json'
         with open(vgatt_path, 'r') as f:
             out = []
             iterator = items(f, 'item')
@@ -647,7 +647,7 @@ class TaskFunctions(object):
 
         print_timestamped_message('... VisualGenome VQAs', indent=4)
 
-        vgvqa_path = config.get('VISGEN', 'visgen_12') + '/jsons/question_answers.json'
+        vgvqa_path = config.get('VISGEN', 'visgen_14') + '/jsons/question_answers.json'
         with open(vgvqa_path, 'r') as f:
             out = []
             iterator = items(f, 'item')
@@ -663,7 +663,7 @@ class TaskFunctions(object):
 
         vgvqa_df = pd.DataFrame(out,
                                 columns='i_corpus image_id qa_id q a q_objs a_objs'.split())
-        visgenqamap_p = config.get('VISGEN', 'visgen_12') + '/jsons/qa_to_region_mapping.json'
+        visgenqamap_p = config.get('VISGEN', 'visgen_14') + '/jsons/qa_to_region_mapping.json'
 
         with open(visgenqamap_p, 'r') as f:
             vgqamap = json.load(f)
